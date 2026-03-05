@@ -45,6 +45,19 @@
 * make Google Photos spoof build patch self-contained ([7b431dd](https://github.com/RookieEnough/De-ReVanced/commit/7b431dd5a707231b5289db60a6fdee5d24b27832))
 * make gradlew executable ([3be2ec5](https://github.com/RookieEnough/De-ReVanced/commit/3be2ec51fff5990c174c166e7a02625971832063))
 
+
+### Features
+
+* release v1.1.0 ([901b2ec](https://github.com/RookieEnough/De-ReVanced/commit/901b2ec28fb8e5863d2085d471f0cf529de08422))
+
+# 1.0.0 (2026-03-05)
+
+
+### Bug Fixes
+
+* make Google Photos spoof build patch self-contained ([7b431dd](https://github.com/RookieEnough/De-ReVanced/commit/7b431dd5a707231b5289db60a6fdee5d24b27832))
+* make gradlew executable ([3be2ec5](https://github.com/RookieEnough/De-ReVanced/commit/3be2ec51fff5990c174c166e7a02625971832063))
+
 # [1.15.0](https://github.com/MorpheApp/morphe-patches/compare/v1.14.0...v1.15.0) (2026-02-25)
 
 
