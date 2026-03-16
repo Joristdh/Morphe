@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Peanut-Butter-bread/Idk/refs/heads/main/logo.png" width="200">
+</p>
+
 <div align="center">
 
 # De-ReVanced
