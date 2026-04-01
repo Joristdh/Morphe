@@ -5,6 +5,7 @@
 
 package app.morphe.patches.iconpackstudio.misc.pro
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 
@@ -12,7 +13,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val unlockProPatch = bytecodePatch(
     name = "Unlock pro",
 ) {
-    compatibleWith("ginlemon.iconpackstudio"("2.2 build 016"))
+    compatibleWith(AppCompatibilities.ICON_PACK_STUDIO)
 
     execute {
         CheckProFingerprint.method.addInstructions(

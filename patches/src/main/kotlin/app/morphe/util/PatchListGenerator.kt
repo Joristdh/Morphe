@@ -33,6 +33,8 @@
 
 package app.morphe.util
 
+import app.morphe.patcher.patch.AppTarget
+import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.Patch
 import app.morphe.patcher.patch.loadPatchesFromJar
 import com.google.gson.GsonBuilder
@@ -67,31 +69,24 @@ internal fun main() {
     }
 }
 
+/**
+ * Emits `version`, root-level `appNames` (package → label), and `patches` with
+ * `compatiblePackages`, **`compatibility`** (full `Compatibility` metadata for Manager UI),
+ * and options. Requires morphe-patcher 1.3.x and `compatibleWith(Compatibility(...))` in patches.
+ */
 @Suppress("DEPRECATION")
 private fun generatePatchList(version: String, patches: Set<Patch<*>>) {
     val listJson = File("../patches-list.json")
 
-    // Optional mapping for UIs that can’t resolve app labels from a package name.
-    // Keys must match the package names used in compatibleWith(...).
-    val appNames = mapOf(
-        "com.google.android.apps.photos" to "Google Photos",
-        "com.google.android.apps.magazines" to "Google News",
-        "com.rarlab.rar" to "RAR",
-        "ch.protonmail.android" to "Proton Mail",
-        "ginlemon.iconpackstudio" to "Icon Pack Studio",
-        "com.letterboxd.letterboxd" to "Letterboxd",
-        "com.cricbuzz.android" to "Cricbuzz",
-        "com.disney.disneyplus" to "Disney+",
-        "com.microsoft.office.officelens" to "Microsoft Lens",
-        "com.soundcloud.android" to "SoundCloud",
-        "jp.pxv.android" to "Pixiv",
-        "com.microblink.photomath" to "Photomath",
-        "com.strava" to "Strava",
-        "com.tumblr" to "Tumblr",
-        "com.amazon.mShop.android.shopping" to "Amazon Shopping",
-        "com.nis.app" to "Inshorts",
-        "com.facebook.orca" to "Messenger",
-    )
+    val appNames = patches
+        .asSequence()
+        .flatMap { it.compatibility.orEmpty().asSequence() }
+        .mapNotNull { c ->
+            val pkg = c.packageName ?: return@mapNotNull null
+            val label = c.name ?: return@mapNotNull null
+            pkg to label
+        }
+        .toMap()
 
     val patchesMap = patches.sortedBy { it.name }.map {
         JsonPatch(
@@ -100,6 +95,7 @@ private fun generatePatchList(version: String, patches: Set<Patch<*>>) {
             it.use,
             it.dependencies.map { dependency -> dependency.javaClass.simpleName },
             it.compatiblePackages?.associate { (packageName, versions) -> packageName to versions },
+            it.compatibility.orEmpty().map { c -> c.toJsonCompatibility() },
             it.options.values.map { option ->
                 JsonPatch.Option(
                     option.key,
@@ -130,6 +126,34 @@ private fun generatePatchList(version: String, patches: Set<Patch<*>>) {
     )
 }
 
+private fun Compatibility.toJsonCompatibility() = JsonCompatibility(
+    name = name ?: "",
+    packageName = packageName ?: "",
+    description = description?.takeUnless { it.isBlank() },
+    appIconColor = appIconColor,
+    targets = targets?.map { t -> t.toJsonAppTarget() },
+)
+
+private fun AppTarget.toJsonAppTarget() = JsonAppTarget(
+    version = version ?: "",
+    experimental = isExperimental,
+)
+
+@Suppress("unused")
+private class JsonCompatibility(
+    val name: String,
+    val packageName: String,
+    val description: String? = null,
+    val appIconColor: Int?,
+    val targets: List<JsonAppTarget>?,
+)
+
+@Suppress("unused")
+private class JsonAppTarget(
+    val version: String,
+    val experimental: Boolean = false,
+)
+
 @Suppress("unused")
 private class JsonPatch(
     val name: String? = null,
@@ -137,6 +161,7 @@ private class JsonPatch(
     val use: Boolean = true,
     val dependencies: List<String>,
     val compatiblePackages: Map<PackageName, Set<VersionName>?>? = null,
+    val compatibility: List<JsonCompatibility>,
     val options: List<Option>,
 ) {
     class Option(

@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.media.upload
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.intOption
 import app.morphe.patcher.patch.longOption
@@ -17,7 +18,7 @@ val overwriteMediaUploadParametersPatch = bytecodePatch(
     name = "Overwrite media upload parameters",
     description = "Overwrites the compression, resize and trim media (images and videos) parameters returned by Strava's server before upload.",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     val compressionQuality by intOption(
         key = "compressionQuality",

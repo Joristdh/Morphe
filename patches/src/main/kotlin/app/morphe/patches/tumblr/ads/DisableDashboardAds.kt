@@ -5,6 +5,7 @@
 
 package app.morphe.patches.tumblr.ads
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.tumblr.timelinefilter.addTimelineObjectTypeFilter
 import app.morphe.patches.tumblr.timelinefilter.filterTimelineObjectsPatch
@@ -16,7 +17,7 @@ val disableDashboardAdsPatch = bytecodePatch(
 ) {
     dependsOn(filterTimelineObjectsPatch)
 
-    compatibleWith("com.tumblr")
+    compatibleWith(AppCompatibilities.TUMBLR)
 
     execute {
         // The timeline object types are filtered by their name in the TimelineObjectType enum.

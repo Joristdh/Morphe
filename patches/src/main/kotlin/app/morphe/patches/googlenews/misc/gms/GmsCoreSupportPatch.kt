@@ -6,6 +6,7 @@
 package app.morphe.patches.googlenews.misc.gms
 
 import app.morphe.patches.googlenews.misc.extension.sharedExtensionPatch
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patches.googlenews.misc.gms.Constants.MAGAZINES_PACKAGE_NAME
 import app.morphe.patches.googlenews.misc.gms.Constants.MORPHE_MAGAZINES_PACKAGE_NAME
 import app.morphe.patches.googlenews.misc.gms.MagazinesActivityOnCreateFingerprint
@@ -21,7 +22,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
-    compatibleWith(MAGAZINES_PACKAGE_NAME)
+    compatibleWith(AppCompatibilities.GOOGLE_NEWS)
 }
 
 /**

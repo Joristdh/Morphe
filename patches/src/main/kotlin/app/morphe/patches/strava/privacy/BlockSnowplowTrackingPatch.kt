@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.privacy
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
 
@@ -13,7 +14,7 @@ val blockSnowplowTrackingPatch = bytecodePatch(
     name = "Block Snowplow tracking",
     description = "Blocks Snowplow analytics. See https://snowplow.io for more information.",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     execute {
         // Keep events list empty, otherwise sent to https://c.strava.com/com.snowplowanalytics.snowplow/tp2.

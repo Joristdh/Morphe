@@ -5,6 +5,7 @@
 
 package app.morphe.patches.googlephotos.misc.features
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
@@ -19,7 +20,7 @@ val spoofFeaturesPatch = bytecodePatch(
     name = "Spoof features",
     description = "Spoofs the device to enable Google Pixel exclusive features, including unlimited storage.",
 ) {
-    compatibleWith("com.google.android.apps.photos")
+    compatibleWith(AppCompatibilities.GOOGLE_PHOTOS)
 
     dependsOn(spoofBuildInfoPatch)
 

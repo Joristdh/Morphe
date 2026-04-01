@@ -5,6 +5,7 @@
 
 package app.morphe.patches.googlenews.customtabs
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
@@ -15,7 +16,7 @@ val enableCustomTabsPatch = bytecodePatch(
     name = "Enable CustomTabs",
     description = "Enables CustomTabs to open articles in your default browser.",
 ) {
-    compatibleWith("com.google.android.apps.magazines")
+    compatibleWith(AppCompatibilities.GOOGLE_NEWS)
 
     execute {
         LaunchCustomTabFingerprint.method.apply {

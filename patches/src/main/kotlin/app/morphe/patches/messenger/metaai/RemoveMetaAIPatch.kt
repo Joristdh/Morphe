@@ -5,6 +5,7 @@
 
 package app.morphe.patches.messenger.metaai
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -21,7 +22,7 @@ val removeMetaAIPatch = bytecodePatch(
     name = "Remove Meta AI",
     description = "Removes UI elements related to Meta AI."
 ) {
-    compatibleWith("com.facebook.orca")
+    compatibleWith(AppCompatibilities.MESSENGER)
 
     dependsOn(sharedExtensionPatch)
 

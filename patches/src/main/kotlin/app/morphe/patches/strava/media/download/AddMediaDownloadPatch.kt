@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.media.download
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -34,7 +35,7 @@ val addMediaDownloadPatch = bytecodePatch(
     name = "Add media download",
     description = "Extends the full-screen media viewer menu with items to copy or open their URLs or download them directly.",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     dependsOn(
         resourceMappingPatch,

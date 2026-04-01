@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.subscription
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
 
@@ -13,7 +14,7 @@ val unlockSubscriptionPatch = bytecodePatch(
     name = "Unlock subscription features",
     description = "Unlocks \"Routes\", \"Matched Runs\" and \"Segment Efforts\".",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     execute {
         GetSubscribedFingerprint.method.returnEarly(true)

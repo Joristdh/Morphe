@@ -5,6 +5,7 @@
 
 package app.morphe.patches.soundcloud.offlinesync
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
@@ -22,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 val enableOfflineSync = bytecodePatch(
     name = "Enable offline sync",
 ) {
-    compatibleWith("com.soundcloud.android"("2025.05.27-release"))
+    compatibleWith(AppCompatibilities.SOUNDCLOUD)
 
     execute {
         // Enable offline_sync feature flag.

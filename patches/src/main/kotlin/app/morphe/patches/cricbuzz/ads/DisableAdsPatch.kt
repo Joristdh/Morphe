@@ -5,6 +5,7 @@
 
 package app.morphe.patches.cricbuzz.ads
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
@@ -13,7 +14,7 @@ import app.morphe.util.returnEarly
 val disableAdsPatch = bytecodePatch(
     name = "Hide ads",
 ) {
-    compatibleWith("com.cricbuzz.android"("6.24.01"))
+    compatibleWith(AppCompatibilities.CRICBUZZ)
 
     execute {
         // Force user state to a value that disables ads.

@@ -7,6 +7,8 @@ extension {
 }
 
 android {
+    namespace = "app.morphe.extension.tumblr"
+
     defaultConfig {
         minSdk = 26
     }

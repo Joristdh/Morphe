@@ -5,6 +5,7 @@
 
 package app.morphe.patches.messenger.layout
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
 
@@ -13,7 +14,7 @@ val hideFacebookButtonPatch = bytecodePatch(
     name = "Hide Facebook button",
     description = "Hides the Facebook button in the top toolbar."
 ) {
-    compatibleWith("com.facebook.orca")
+    compatibleWith(AppCompatibilities.MESSENGER)
 
     execute {
         IsFacebookButtonEnabledFingerprint.method.returnEarly(false)

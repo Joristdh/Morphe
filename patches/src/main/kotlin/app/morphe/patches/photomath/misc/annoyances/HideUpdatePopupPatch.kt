@@ -5,6 +5,7 @@
 
 package app.morphe.patches.photomath.misc.annoyances
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.photomath.detection.signature.signatureDetectionPatch
@@ -16,7 +17,7 @@ val hideUpdatePopupPatch = bytecodePatch(
 ) {
     dependsOn(signatureDetectionPatch)
 
-    compatibleWith("com.microblink.photomath")
+    compatibleWith(AppCompatibilities.PHOTOMATH)
 
     execute {
         HideUpdatePopupFingerprint.method.addInstructions(

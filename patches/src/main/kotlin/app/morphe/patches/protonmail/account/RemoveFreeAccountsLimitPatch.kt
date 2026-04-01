@@ -5,6 +5,7 @@
 
 package app.morphe.patches.protonmail.account
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.util.findElementByAttributeValueOrThrow
 
@@ -13,7 +14,7 @@ val removeFreeAccountsLimitPatch = resourcePatch(
     name = "Remove free accounts limit",
     description = "Removes the limit for maximum free accounts logged in.",
 ) {
-    compatibleWith("ch.protonmail.android"("4.15.0"))
+    compatibleWith(AppCompatibilities.PROTON_MAIL)
 
     execute {
         document("res/values/integers.xml").use { document ->

@@ -5,6 +5,7 @@
 
 package app.morphe.patches.photomath.detection.deviceid
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.photomath.detection.signature.signatureDetectionPatch
 import app.morphe.util.returnEarly
@@ -17,7 +18,7 @@ val getDeviceIdPatch = bytecodePatch(
 ) {
     dependsOn(signatureDetectionPatch)
 
-    compatibleWith("com.microblink.photomath")
+    compatibleWith(AppCompatibilities.PHOTOMATH)
 
     execute {
         GetDeviceIdFingerprint.method.returnEarly(Random.nextLong().toString(16))

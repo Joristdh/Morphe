@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.password
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
@@ -14,7 +15,7 @@ val enablePasswordLoginPatch = bytecodePatch(
     name = "Enable password login",
     description = "Re-enables password login after having used an OTP code.",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     execute {
         fun Fingerprint.returnTrue() = method.returnEarly(true)

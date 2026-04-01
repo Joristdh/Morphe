@@ -7,13 +7,14 @@ package app.morphe.patches.disneyplus.ads
 
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patches.shared.compat.AppCompatibilities
 
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
     description = "Automatically skips ads.",
 ) {
-    compatibleWith("com.disney.disneyplus")
+    compatibleWith(AppCompatibilities.DISNEY_PLUS)
 
     execute {
         arrayOf(InsertionGetPointsFingerprint, InsertionGetRangesFingerprint).forEach {

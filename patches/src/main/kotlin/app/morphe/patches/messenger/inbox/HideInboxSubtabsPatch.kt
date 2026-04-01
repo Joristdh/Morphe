@@ -5,6 +5,7 @@
 
 package app.morphe.patches.messenger.inbox
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 
@@ -13,7 +14,7 @@ val hideInboxSubtabsPatch = bytecodePatch(
     name = "Hide inbox subtabs",
     description = "Hides Home and Channels tabs between active now tray and chats.",
 ) {
-    compatibleWith("com.facebook.orca")
+    compatibleWith(AppCompatibilities.MESSENGER)
 
     execute {
         CreateInboxSubTabsFingerprint.method.replaceInstruction(2, "const/4 v0, 0x0")

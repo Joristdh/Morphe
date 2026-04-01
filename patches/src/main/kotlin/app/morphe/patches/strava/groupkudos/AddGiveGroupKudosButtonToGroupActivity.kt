@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.groupkudos
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
@@ -106,7 +107,7 @@ val addGiveGroupKudosButtonToGroupActivity = bytecodePatch(
     name = "Add 'Give Kudos' button to 'Group Activity'",
     description = "Adds a button that triggers the same action as shaking your phone would.",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     dependsOn(addGiveKudosButtonToLayoutPatch, sharedExtensionPatch)
 

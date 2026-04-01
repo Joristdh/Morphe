@@ -5,6 +5,7 @@
 
 package app.morphe.patches.tumblr.annoyances.inappupdate
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.tumblr.featureflags.addFeatureFlagOverride
 import app.morphe.patches.tumblr.featureflags.overrideFeatureFlagsPatch
@@ -16,7 +17,7 @@ val disableInAppUpdatePatch = bytecodePatch(
 ) {
     dependsOn(overrideFeatureFlagsPatch)
 
-    compatibleWith("com.tumblr")
+    compatibleWith(AppCompatibilities.TUMBLR)
 
     execute {
         // Before checking for updates using Google Play core AppUpdateManager, the value of this feature flag is checked.

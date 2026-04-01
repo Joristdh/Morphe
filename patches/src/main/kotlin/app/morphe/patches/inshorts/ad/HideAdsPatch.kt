@@ -5,6 +5,7 @@
 
 package app.morphe.patches.inshorts.ad
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.bytecodePatch
 
@@ -12,7 +13,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
 ) {
-    compatibleWith("com.nis.app")
+    compatibleWith(AppCompatibilities.INSHORTS)
 
     execute {
         InshortsAdsFingerprint.method.addInstruction(

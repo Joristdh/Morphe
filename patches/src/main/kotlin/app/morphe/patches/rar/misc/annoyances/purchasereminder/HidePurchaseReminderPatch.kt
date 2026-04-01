@@ -5,6 +5,7 @@
 
 package app.morphe.patches.rar.misc.annoyances.purchasereminder
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.bytecodePatch
 
@@ -13,7 +14,7 @@ val hidePurchaseReminderPatch = bytecodePatch(
     name = "Hide purchase reminder",
     description = "Hides the popup that reminds you to purchase the app.",
 ) {
-    compatibleWith("com.rarlab.rar")
+    compatibleWith(AppCompatibilities.RAR)
 
     execute {
         ShowReminderFingerprint.method.addInstruction(0, "return-void")

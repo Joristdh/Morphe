@@ -5,6 +5,7 @@
 
 package app.morphe.patches.protonmail.signature
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.util.findElementByAttributeValue
@@ -15,7 +16,7 @@ val removeSentFromSignaturePatch = resourcePatch(
     name = "Remove 'Sent from' signature",
     description = "Removes the 'Sent from Proton Mail mobile' signature from emails.",
 ) {
-    compatibleWith("ch.protonmail.android"("4.15.0"))
+    compatibleWith(AppCompatibilities.PROTON_MAIL)
 
     execute {
         val stringResourceFiles = mutableListOf<File>()

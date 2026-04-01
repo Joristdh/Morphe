@@ -5,6 +5,7 @@
 
 package app.morphe.patches.letterboxd.ads
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.PatchException
@@ -15,7 +16,7 @@ import app.morphe.util.returnEarly
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
 ) {
-    compatibleWith("com.letterboxd.letterboxd")
+    compatibleWith(AppCompatibilities.LETTERBOXD)
 
     execute {
         AdmobHelperSetShowAdsFingerprint.method.addInstruction(0, "const p1, 0x0")

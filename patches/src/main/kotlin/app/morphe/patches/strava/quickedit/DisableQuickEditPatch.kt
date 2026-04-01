@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.quickedit
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
 
@@ -13,7 +14,7 @@ val disableQuickEditPatch = bytecodePatch(
     name = "Disable Quick Edit",
     description = "Prevents the Quick Edit prompt from popping up.",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     execute {
         // In ReVanced this returned the type default; in Morphe, be explicit.

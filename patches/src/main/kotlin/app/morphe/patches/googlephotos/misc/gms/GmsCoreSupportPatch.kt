@@ -6,6 +6,7 @@
 package app.morphe.patches.googlephotos.misc.gms
 
 import app.morphe.patches.googlephotos.misc.extension.sharedExtensionPatch
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patches.googlephotos.misc.gms.Constants.MORPHE_PHOTOS_PACKAGE_NAME
 import app.morphe.patches.googlephotos.misc.gms.Constants.PHOTOS_PACKAGE_NAME
 import app.morphe.patches.googlephotos.misc.gms.HomeActivityOnCreateFingerprint
@@ -21,7 +22,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
-    compatibleWith(PHOTOS_PACKAGE_NAME)
+    compatibleWith(AppCompatibilities.GOOGLE_PHOTOS)
 }
 
 /**

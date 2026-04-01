@@ -5,6 +5,7 @@
 
 package app.morphe.patches.tumblr.annoyances.notifications
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
 
@@ -13,7 +14,7 @@ val disableBlogNotificationReminderPatch = bytecodePatch(
     name = "Disable blog notification reminder",
     description = "Disables the reminder to enable notifications for blogs you visit.",
 ) {
-    compatibleWith("com.tumblr")
+    compatibleWith(AppCompatibilities.TUMBLR)
 
     execute {
         IsBlogNotifyEnabledFingerprint.method.returnEarly(false)

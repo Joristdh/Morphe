@@ -5,6 +5,7 @@
 
 package app.morphe.patches.strava.distractions
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.booleanOption
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
@@ -48,7 +49,7 @@ val hideDistractionsPatch = bytecodePatch(
     name = "Hide distractions",
     description = "Hides elements that are not essential.",
 ) {
-    compatibleWith("com.strava")
+    compatibleWith(AppCompatibilities.STRAVA)
 
     dependsOn(sharedExtensionPatch)
 

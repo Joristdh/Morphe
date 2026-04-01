@@ -5,6 +5,7 @@
 
 package app.morphe.patches.tumblr.annoyances.popups
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
 
@@ -13,7 +14,7 @@ val disableGiftMessagePopupPatch = bytecodePatch(
     name = "Disable gift message popup",
     description = "Disables the popup suggesting to buy TumblrMart items for other people.",
 ) {
-    compatibleWith("com.tumblr")
+    compatibleWith(AppCompatibilities.TUMBLR)
 
     execute {
         ShowGiftMessagePopupFingerprint.method.returnEarly()

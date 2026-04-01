@@ -5,6 +5,7 @@
 
 package app.morphe.patches.tumblr.fixes
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.patch.bytecodePatch
 
@@ -13,9 +14,9 @@ val fixOldVersionsPatch = bytecodePatch(
     name = "Fix old versions",
     description = "Fixes old versions of the app (v33.2 and earlier) breaking due to Tumblr removing remnants of Tumblr" +
         " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
-    use = false,
+    default = false,
 ) {
-    compatibleWith("com.tumblr")
+    compatibleWith(AppCompatibilities.TUMBLR)
 
     execute {
         val liveQueryParameters = listOf(

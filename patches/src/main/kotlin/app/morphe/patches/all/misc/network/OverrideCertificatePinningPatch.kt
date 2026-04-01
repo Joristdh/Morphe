@@ -15,7 +15,7 @@ val overrideCertificatePinningPatch = resourcePatch(
     name = "Override certificate pinning",
     description = "Overrides certificate pinning, allowing to inspect traffic via a proxy. " +
             "This patch does not work with Reddit.",
-    use = false,
+    default = false,
 ) {
     execute {
         val resXmlDirectory = get("res/xml")

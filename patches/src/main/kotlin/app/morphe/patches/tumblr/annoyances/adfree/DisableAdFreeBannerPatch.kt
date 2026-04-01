@@ -5,6 +5,7 @@
 
 package app.morphe.patches.tumblr.annoyances.adfree
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patches.tumblr.featureflags.addFeatureFlagOverride
 import app.morphe.patches.tumblr.featureflags.overrideFeatureFlagsPatch
@@ -16,7 +17,7 @@ val disableAdFreeBannerPatch = bytecodePatch(
 ) {
     dependsOn(overrideFeatureFlagsPatch)
 
-    compatibleWith("com.tumblr")
+    compatibleWith(AppCompatibilities.TUMBLR)
 
     execute {
         // Disable the "AD_FREE_CTA_BANNER" ("Whether or not to show ad free prompt") feature flag.

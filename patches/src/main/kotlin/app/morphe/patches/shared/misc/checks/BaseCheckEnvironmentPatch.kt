@@ -20,6 +20,7 @@ import android.os.Build.TYPE
 import android.os.Build.USER
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
+import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.Patch
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.util.proxy.mutableTypes.encodedValue.MutableEncodedValue
@@ -38,7 +39,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 fun checkEnvironmentPatch(
     mainActivityOnCreateFingerprint: Fingerprint,
     extensionPatch: Patch<*>,
-    vararg compatiblePackages: String,
+    vararg compatiblePackages: Compatibility,
 ) = bytecodePatch(
     description = "Checks, where the application was patched by, otherwise warns the user.",
 ) {

@@ -2,17 +2,19 @@ group = "app.morphe"
 
 patches {
     about {
-        name = "Morphe Patches"
-        description = "Patches for Morphe"
-        source = "git@github.com:MorpheApp/morphe-patches.git"
-        author = "MorpheApp"
+        name = "De-ReVanced Patches"
+        description = "ReVanced patches, ported for Morphe."
+        source = "https://github.com/RookieEnough/De-ReVanced"
+        author = "De-ReVanced"
         contact = "na"
-        website = "https://morphe.software"
+        website = "https://github.com/RookieEnough/De-ReVanced"
         license = "GNU General Public License v3.0, with additional GPL section 7 requirements"
     }
 }
 
 dependencies {
+    compileOnly(libs.morphe.patcher)
+
     // Used by JsonGenerator.
     implementation(libs.gson)
 

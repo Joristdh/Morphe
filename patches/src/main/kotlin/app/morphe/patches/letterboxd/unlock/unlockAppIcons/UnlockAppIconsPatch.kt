@@ -5,6 +5,7 @@
 
 package app.morphe.patches.letterboxd.unlock.unlockAppIcons
 
+import app.morphe.patches.shared.compat.AppCompatibilities
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.util.returnEarly
 
@@ -12,7 +13,7 @@ import app.morphe.util.returnEarly
 val unlockAppIconsPatch = bytecodePatch(
     name = "Unlock app icons",
 ) {
-    compatibleWith("com.letterboxd.letterboxd")
+    compatibleWith(AppCompatibilities.LETTERBOXD)
 
     execute {
         GetCanChangeAppIconFingerprint.method.returnEarly(true)
