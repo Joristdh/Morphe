@@ -2,7 +2,7 @@ group = "app.morphe"
 
 patches {
     about {
-        name = "Morphe Patches"
+        name = "Morf"
         description = "ReVanced patches, ported for Morphe."
         source = "https://github.com/Joristdh/Morphe"
         author = "Joristdh"
