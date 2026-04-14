@@ -9,7 +9,6 @@ import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.all.misc.resources.addAppResources
 import app.morphe.patches.all.misc.resources.addResourcesPatch
-import app.morphe.patches.shared.layout.branding.addLicensePatch
 import app.morphe.patches.shared.misc.extension.EXTENSION_CLASS_DESCRIPTOR
 import app.morphe.patches.shared.misc.settings.preference.BasePreference
 import app.morphe.patches.shared.misc.settings.preference.PreferenceCategory
@@ -60,7 +59,6 @@ fun settingsPatch (
     dependsOn(
         addResourcesPatch,
         settingsColorPatch,
-        addLicensePatch
     )
 
     execute {
