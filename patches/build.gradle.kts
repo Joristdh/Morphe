@@ -2,10 +2,10 @@ group = "app.morphe"
 
 patches {
     about {
-        name = "De-ReVanced Patches"
+        name = "Morphe Patches"
         description = "ReVanced patches, ported for Morphe."
-        source = "https://github.com/RookieEnough/De-ReVanced"
-        author = "De-ReVanced"
+        source = "https://github.com/Joristdh/Morphe"
+        author = "Joristdh"
         contact = "na"
         website = "https://github.com/RookieEnough/De-ReVanced"
         license = "GNU General Public License v3.0, with additional GPL section 7 requirements"
