@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/Joristdh/Platypatch/compare/v1.1.2...v1.1.3) (2026-04-16)
+
+
+### Bug Fixes
+
+* complete renaming ([abf5e29](https://github.com/Joristdh/Platypatch/commit/abf5e299fdcd27e6ef4dfda4adb79a6e57e7dc3c))
+
 ## [1.1.2](https://github.com/Joristdh/Morphe/compare/v1.1.1...v1.1.2) (2026-04-16)
 
 
