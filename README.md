@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Joristdh/Morphe/refs/heads/main/platty.png" width="200">
+  <img src="https://raw.githubusercontent.com/Joristdh/Platypatch/refs/heads/main/platty.png" width="200">
 </p>
 
 <div align="center">
