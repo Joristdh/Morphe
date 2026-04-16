@@ -4,10 +4,10 @@ patches {
     about {
         name = "Platypatch"
         description = "Ported patches for Morphe."
-        source = "https://github.com/Joristdh/Morphe"
+        source = "https://github.com/Joristdh/Platypatch"
         author = "Joristdh"
         contact = "na"
-        website = "https://github.com/RookieEnough/De-ReVanced"
+        website = "https://github.com/Joristdh/Platypatch"
         license = "GNU General Public License v3.0, with additional GPL section 7 requirements"
     }
 }

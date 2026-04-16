@@ -19,7 +19,7 @@
 
 ## About
 
-**Platypatch** is a curated collection of patches that have been migrated from [ReVanced](https://github.com/ReVanced/revanced-patches) to [Morphe](https://morphe.software)—a community-driven, open-source alternative for patching Android apps.
+**Platypatch** contains patches that have been migrated from [ReVanced](https://github.com/ReVanced/revanced-patches) to [Morphe](https://morphe.software)—a community-driven, open-source alternative for patching Android apps.
 
 ---
 
@@ -31,9 +31,9 @@
 
 ### How to use these patches
 
-Click here to add these patches to Morphe: https://morphe.software/add-source?github=Joristdh/Morphe
+Click here to add these patches to Morphe: https://morphe.software/add-source?github=Joristdh/Platypatch
 
-Or manually add this repository url as a patch source in Morphe: https://github.com/Joristdh/Morphe
+Or manually add this repository url as a patch source in Morphe: https://github.com/Joristdh/Platypatch
 
 ---
 
